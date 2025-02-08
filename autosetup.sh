@@ -11,6 +11,9 @@ apt update && apt upgrade -y
 echo "📦 Installing required dependencies..."
 apt install -y curl git ufw
 
+echo "Installing posgressql..."
+apt install postgresql postgresql-contrib -y
+
 echo "🛡️ Configuring firewall..."
 ufw allow 22
 ufw allow 5432
@@ -38,10 +41,10 @@ echo "🐳 Starting Docker containers..."
 docker-compose up -d --build
 
 echo "⏳ Waiting for PostgreSQL to be ready..."
-sleep 10
+sleep 5
 
 echo "📦 Setting up PostgreSQL database..."
-
+su - postgres
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME <<EOF
 CREATE DATABASE $DB_NAME;
 CREATE USER $DB_USER WITH ENCRYPTED PASSWORD '$DB_PASSWORD';
