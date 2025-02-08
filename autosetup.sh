@@ -46,7 +46,6 @@ echo "⏳ Waiting for PostgreSQL to be ready..."
 sleep 5
 
 echo "📦 Setting up PostgreSQL database..."
-su - postgres
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME <<EOF
 CREATE DATABASE $DB_NAME;
 CREATE USER $DB_USER WITH ENCRYPTED PASSWORD '$DB_PASSWORD';
