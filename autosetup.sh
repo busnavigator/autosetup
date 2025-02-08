@@ -42,10 +42,10 @@ sleep 10
 
 echo "📦 Setting up PostgreSQL database..."
 
-psql -h $PG_HOST -p $PG_PORT -U $PG_USER -d $PG_DB <<EOF
-CREATE DATABASE bus_navigator;
-CREATE USER driver WITH ENCRYPTED PASSWORD 'JdKurwe123';
-GRANT ALL PRIVILEGES ON DATABASE bus_navigator TO driver;
+psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME <<EOF
+CREATE DATABASE $DB_NAME;
+CREATE USER $DB_USER WITH ENCRYPTED PASSWORD '$DB_PASSWORD';
+GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;
 EOF
 
 echo "✅ Server setup complete!"
