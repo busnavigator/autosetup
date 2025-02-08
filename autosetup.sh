@@ -31,6 +31,9 @@ cd /api
 echo "🔑 Setting up environment variables..."
 cp .env.example .env
 
+echo "🔒 Loading environment variables..."
+source .env
+
 echo "🐳 Starting Docker containers..."
 docker-compose up -d --build
 
@@ -38,10 +41,6 @@ echo "⏳ Waiting for PostgreSQL to be ready..."
 sleep 10
 
 echo "📦 Setting up PostgreSQL database..."
-PG_HOST="127.0.0.1"
-PG_PORT="5432"
-PG_USER="driver"
-PG_DB="bus_navigator"
 
 psql -h $PG_HOST -p $PG_PORT -U $PG_USER -d $PG_DB <<EOF
 CREATE DATABASE bus_navigator;
