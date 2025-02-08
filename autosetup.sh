@@ -9,20 +9,20 @@ echo "🔄 Updating packages..."
 apt update && sudo apt upgrade -y
 
 echo "📦 Installing required dependencies..."
-apt install -y curl git ufw sudo
+apt install -y curl git ufw
 
 echo "🛡️ Configuring firewall..."
-sudo ufw allow 22
-sudo ufw allow 5432
-sudo ufw allow 80
-sudo ufw allow 443
-sudo ufw enable
+ufw allow 22
+ufw allow 5432
+ufw allow 80
+ufw allow 443
+ufw enable
 
 echo "🐳 Installing Docker..."
-sudo apt install docker
+apt install docker
 
 echo "📦 Installing Docker Compose..."
-sudo apt install docker-compose
+apt install docker-compose
 
 echo "🔄 Cloning API repository..."
 git clone https://github.com/bus_navigator/api
