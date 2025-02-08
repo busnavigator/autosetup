@@ -6,7 +6,7 @@ set -e
 echo "🚀 Starting server setup..."
 
 echo "🔄 Updating packages..."
-apt update && sudo apt upgrade -y
+apt update && apt upgrade -y
 
 echo "📦 Installing required dependencies..."
 apt install -y curl git ufw
@@ -25,7 +25,7 @@ echo "📦 Installing Docker Compose..."
 apt install docker-compose
 
 echo "🔄 Cloning API repository..."
-git clone https://github.com/bus_navigator/api
+git clone https://github.com/busnavigator/api
 cd /api
 
 echo "🔑 Setting up environment variables..."
