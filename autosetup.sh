@@ -13,6 +13,8 @@ apt install -y curl git ufw
 
 echo "Installing posgressql..."
 apt install postgresql postgresql-contrib -y
+systemctl stop postgresql
+systemctl disable postgresql
 
 echo "🛡️ Configuring firewall..."
 ufw allow 22
