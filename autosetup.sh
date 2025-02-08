@@ -26,7 +26,7 @@ apt install docker-compose
 
 echo "🔄 Cloning API repository..."
 git clone https://github.com/busnavigator/api
-cd /api
+cd api/
 
 echo "🔑 Setting up environment variables..."
 cp .env.example .env
